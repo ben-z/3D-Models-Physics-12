@@ -6,5 +6,7 @@
 3. stl - Print-ready `.stl` files
 
 ###Current Model(s):
-1. rudder - [stl](stl/rudder.stl), [blend](blend/rudder.blend)
-  <br /><img src="img/rudder.jpg" height="60"/>
+
+| # | Name | Files | Image
+|--:|:-----:|:-------:|:------:
+|1. | rudder | [stl](stl/rudder.stl) &#124; [blend](blend/rudder.blend) | <img src="img/rudder.jpg" height="60"/>
