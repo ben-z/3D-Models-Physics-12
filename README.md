@@ -9,4 +9,4 @@
 
 | # | Name | Files | Image
 |--:|:-----:|:-------:|:------:
-|1. | rudder | [stl](stl/rudder.stl) &#124; [blend](blend/rudder.blend) | <img src="img/rudder.jpg" height="60"/>
+|1. | Control_Horn | [stl](stl/Control_Horn.stl) &#124; [blend](blend/Control_Horn.blend) | <img src="img/Control_Horn.jpg" height="60"/>
