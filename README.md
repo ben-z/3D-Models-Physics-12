@@ -4,6 +4,7 @@
 1. blend - Blender files `.blend`
 2. img - Images of the models
 3. stl - Print-ready `.stl` files
+3. scad - Designed in [OpenSCAD](http://www.openscad.org/) `.scad`
 
 ###Current Models:
 
