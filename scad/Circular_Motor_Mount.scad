@@ -12,8 +12,8 @@
 // Radius of the motor mount (mm) [Default: 44]
 radius = 22;
 
-// Thinkness of the motor mount (mm) [Default: 3]
-thinkness = 3;
+// Thickness of the motor mount (mm) [Default: 3]
+thickness = 3;
 
 // Resolution of the model (mm) [Default: 50]
 resolution = 50;
@@ -70,6 +70,7 @@ cut_4_angle = 270;
 
 /* [Hidden] */
 $fn=resolution;
+thickness_diff_obj = thickness + 1;
 
 motor_mount();
 
@@ -83,7 +84,7 @@ motor_mount();
 
 module motor_mount(){
   difference(){
-    cylinder(r=radius, h=thinkness, center=true);
+    cylinder(r=radius, h=thickness, center=true);
     inner_circle();
     outer_holes();
     inner_holes();
@@ -92,28 +93,28 @@ module motor_mount(){
 }
 
 module inner_circle(){
-  cylinder(r=inner_radius, h=thinkness, center=true);
+  cylinder(r=inner_radius, h=thickness_diff_obj, center=true);
 }
 
 module outer_holes(){
   rotate([0,0,outer_hole_1_angle]){
     translate([outer_hole_1_offset,0,0]){
-      cylinder(r=outer_hole_1_radius, h=thinkness, center=true);
+      cylinder(r=outer_hole_1_radius, h=thickness_diff_obj, center=true);
     }
   }  
   rotate([0,0,outer_hole_2_angle]){
     translate([outer_hole_2_offset,0,0]){
-      cylinder(r=outer_hole_2_radius, h=thinkness, center=true);
+      cylinder(r=outer_hole_2_radius, h=thickness_diff_obj, center=true);
     }
   }
   rotate([0,0,outer_hole_3_angle]){
     translate([outer_hole_3_offset,0,0]){
-      cylinder(r=outer_hole_3_radius, h=thinkness, center=true);
+      cylinder(r=outer_hole_3_radius, h=thickness_diff_obj, center=true);
     }
   }
   rotate([0,0,outer_hole_4_angle]){
     translate([outer_hole_4_offset,0,0]){
-      cylinder(r=outer_hole_4_radius, h=thinkness, center=true);
+      cylinder(r=outer_hole_4_radius, h=thickness_diff_obj, center=true);
     }
   }
 }
@@ -121,22 +122,22 @@ module outer_holes(){
 module inner_holes(){
   rotate([0,0,inner_hole_1_angle]){
     translate([inner_hole_1_offset,0,0]){
-      cylinder(r=inner_hole_1_radius, h=thinkness, center=true);
+      cylinder(r=inner_hole_1_radius, h=thickness_diff_obj, center=true);
     }
   }  
   rotate([0,0,inner_hole_2_angle]){
     translate([inner_hole_2_offset,0,0]){
-      cylinder(r=inner_hole_2_radius, h=thinkness, center=true);
+      cylinder(r=inner_hole_2_radius, h=thickness_diff_obj, center=true);
     }
   }
   rotate([0,0,inner_hole_3_angle]){
     translate([inner_hole_3_offset,0,0]){
-      cylinder(r=inner_hole_3_radius, h=thinkness, center=true);
+      cylinder(r=inner_hole_3_radius, h=thickness_diff_obj, center=true);
     }
   }
   rotate([0,0,inner_hole_4_angle]){
     translate([inner_hole_4_offset,0,0]){
-      cylinder(r=inner_hole_4_radius, h=thinkness, center=true);
+      cylinder(r=inner_hole_4_radius, h=thickness_diff_obj, center=true);
     }
   }
 }
@@ -144,22 +145,22 @@ module inner_holes(){
 module side_cuts(){
   rotate([0,0,cut_1_angle]){
     translate([radius - cut_1_depth / 4,0,0]){
-      cube(size=[cut_1_depth*2, cut_1_width, thinkness], center=true);
+      cube(size=[cut_1_depth*2, cut_1_width, thickness_diff_obj], center=true);
     }
   }
   rotate([0,0,cut_2_angle]){
     translate([radius - cut_2_depth / 4,0,0]){
-      cube(size=[cut_2_depth*2, cut_2_width, thinkness], center=true);
+      cube(size=[cut_2_depth*2, cut_2_width, thickness_diff_obj], center=true);
     }
   }
   rotate([0,0,cut_3_angle]){
     translate([radius - cut_3_depth / 4,0,0]){
-      cube(size=[cut_3_depth*2, cut_3_width, thinkness], center=true);
+      cube(size=[cut_3_depth*2, cut_3_width, thickness_diff_obj], center=true);
     }
   }
   rotate([0,0,cut_4_angle]){
     translate([radius - cut_4_depth / 4,0,0]){
-      cube(size=[cut_4_depth*2, cut_4_width, thinkness], center=true);
+      cube(size=[cut_4_depth*2, cut_4_width, thickness_diff_obj], center=true);
     }
   }
 }
