@@ -26,46 +26,46 @@ inner_radius = 4.5;
 /* [Outer Holes] */
 
 outer_hole_1_radius = 1;
-outer_hole_1_offset = 16;
+outer_hole_1_offset = 16.5;
 outer_hole_1_angle = 45;
 outer_hole_2_radius = 1;
-outer_hole_2_offset = 16;
+outer_hole_2_offset = 16.5;
 outer_hole_2_angle = 135;
 outer_hole_3_radius = 1;
-outer_hole_3_offset = 16;
+outer_hole_3_offset = 16.5;
 outer_hole_3_angle = 225;
 outer_hole_4_radius = 1;
-outer_hole_4_offset = 16;
+outer_hole_4_offset = 16.5;
 outer_hole_4_angle = 315;
 
 /* [Inner Holes] */
 
 inner_hole_1_radius = 2;
-inner_hole_1_offset = 10;
+inner_hole_1_offset = 9.5;
 inner_hole_1_angle = 45;
 inner_hole_2_radius = 2;
-inner_hole_2_offset = 9;
+inner_hole_2_offset = 8.2;
 inner_hole_2_angle = 135;
 inner_hole_3_radius = 2;
-inner_hole_3_offset = 10;
+inner_hole_3_offset = 9.5;
 inner_hole_3_angle = 225;
 inner_hole_4_radius = 2;
-inner_hole_4_offset = 9;
+inner_hole_4_offset = 8.2;
 inner_hole_4_angle = 315;
 
 /* [Side Cuts] */
 
-cut_1_width = 5.6;
-cut_1_depth = 6.2;
+cut_1_width = 6;
+cut_1_depth = 5.5;
 cut_1_angle = 0;
-cut_2_width = 5.6;
-cut_2_depth = 6.2;
+cut_2_width = 6;
+cut_2_depth = 5.5;
 cut_2_angle = 90;
-cut_3_width = 5.6;
-cut_3_depth = 6.2;
+cut_3_width = 6;
+cut_3_depth = 5.5;
 cut_3_angle = 180;
-cut_4_width = 5.6;
-cut_4_depth = 6.2;
+cut_4_width = 6;
+cut_4_depth = 5.5;
 cut_4_angle = 270;
 
 /* [Hidden] */
@@ -101,7 +101,7 @@ module outer_holes(){
     translate([outer_hole_1_offset,0,0]){
       cylinder(r=outer_hole_1_radius, h=thickness_diff_obj, center=true);
     }
-  }  
+  }
   rotate([0,0,outer_hole_2_angle]){
     translate([outer_hole_2_offset,0,0]){
       cylinder(r=outer_hole_2_radius, h=thickness_diff_obj, center=true);
@@ -124,7 +124,7 @@ module inner_holes(){
     translate([inner_hole_1_offset,0,0]){
       cylinder(r=inner_hole_1_radius, h=thickness_diff_obj, center=true);
     }
-  }  
+  }
   rotate([0,0,inner_hole_2_angle]){
     translate([inner_hole_2_offset,0,0]){
       cylinder(r=inner_hole_2_radius, h=thickness_diff_obj, center=true);
