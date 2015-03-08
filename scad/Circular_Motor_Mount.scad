@@ -12,8 +12,8 @@
 // Radius of the motor mount (mm) [Default: 44]
 radius = 22;
 
-// Thickness of the motor mount (mm) [Default: 3]
-thickness = 3;
+// Thickness of the motor mount (mm) [Default: 2]
+thickness = 2;
 
 // Resolution of the model (mm) [Default: 50]
 resolution = 50;
