@@ -1,4 +1,4 @@
-text_line_one = "Deflection Guide · F-18";
+text = "Deflection Guide · F-18";
 
 length = 120.43;
 
@@ -20,7 +20,7 @@ linear_extrude(height=height){
         
         translate([text_offset,length/4*2,0]){
             rotate([0,0,270])
-            text(text=text_line_one, size=text_size, font=font, halign="center");
+            text(text=text, size=text_size, font=font, halign="center");
         }
     }
 }

@@ -1,3 +1,10 @@
+text = "Part-1 · F-18";
+
+font = "Helvetica Neue:style=bold";
+
+text_offset_x = 50;
+text_offset_y = 30;
+
 height = 2;
 
 linear_extrude(height=height)
