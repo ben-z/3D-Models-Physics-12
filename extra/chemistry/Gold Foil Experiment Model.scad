@@ -2,33 +2,39 @@ length = 180;
 
 width = 180;
 
-base_height = 2;
+base_height = 1;
+cover_thickness = 2;
 
-gap_height = 6;
+gap_height = 5;
 
 cover_width = 180;
 cover_length = 90;
 cover_side_width = 5;
 
-cylinder_bottom_radius = 5;
-cylinder_top_radius = 5;
+cylinder_bottom_radius = 3;
+cylinder_top_radius = 3;
 
 // Relative to center
+//pillar_coords = [
+//    [cover_width/4+10,cover_length/3],
+//    [-cover_width/4-10,cover_length/3],
+//    [0,0],
+//    [cover_width/8+10,-cover_length/3],
+//    [-cover_width/8-10,-cover_length/3],
+//];
 pillar_coords = [
-    [cover_width/4,cover_length/3],
-    [-cover_width/4,-cover_length/4],
-    [-cover_width/8,-cover_length/8],
-    [-cover_width/3,cover_length/3],
-    [cover_width/2.5,-cover_length/3],
-    [cover_width/5,-cover_length/6],
-    [10,0]
+    [cover_width/5/2,0],
+    [cover_width/5+cover_width/5/2,0],
+    [-cover_width/5/2,0],
+    [-(cover_width/5+cover_width/5/2),0],
 ];
 
-base();
+union(){
+//base();
 cover();
 cover_sizes();
 pillars();
-
+}
 // Pillars
 module pillars(){
     for( i = [0 : len(pillar_coords) - 1] ){
@@ -66,7 +72,7 @@ module base() {
 // Cover
 module cover() {
     translate([0,0,gap_height+base_height]) {
-        linear_extrude(base_height) {
+        linear_extrude(cover_thickness) {
             polygon(
                 points=[
                     [-cover_width/2, -cover_length/2]
