@@ -11,8 +11,10 @@ cover_width = 180;
 cover_length = 90;
 cover_side_width = 5;
 
-cylinder_bottom_radius = 3;
-cylinder_top_radius = 3;
+//cylinder_bottom_radius = 3;
+//cylinder_top_radius = 3;
+
+pillar_size = 6;
 
 // Relative to center
 //pillar_coords = [
@@ -49,8 +51,10 @@ module pillars(){
 }
 // Pole
 module pillar(){
-    translate([0,0,base_height])
-    cylinder(h = gap_height, r1 = cylinder_bottom_radius, r2 = cylinder_top_radius, center = false);
+    rotate([0,0,45])
+    translate([0,0,base_height+gap_height/2])
+    cube(size=[pillar_size,pillar_size,gap_height], center=true);
+//    cylinder(h = gap_height, r1 = cylinder_bottom_radius, r2 = cylinder_top_radius, center = false);
 }
 
 // Base
