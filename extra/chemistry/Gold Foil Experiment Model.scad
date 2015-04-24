@@ -11,10 +11,14 @@ cover_width = 180;
 cover_length = 90;
 cover_side_width = 5;
 
+front_cover_thickness = 2;
+front_cover_offset = 2;
+
 //cylinder_bottom_radius = 3;
 //cylinder_top_radius = 3;
 
 pillar_size = 6;
+pillar_offset = 0.8;
 
 // Relative to center
 //pillar_coords = [
@@ -24,11 +28,16 @@ pillar_size = 6;
 //    [cover_width/8+10,-cover_length/3],
 //    [-cover_width/8-10,-cover_length/3],
 //];
+//pillar_coords = [
+//    [cover_width/5/2,0],
+//    [cover_width/5+cover_width/5/2,0],
+//    [-cover_width/5/2,0],
+//    [-(cover_width/5+cover_width/5/2),0],
+//];
 pillar_coords = [
-    [cover_width/5/2,0],
-    [cover_width/5+cover_width/5/2,0],
-    [-cover_width/5/2,0],
-    [-(cover_width/5+cover_width/5/2),0],
+    [cover_width/4,0],
+    [0,0],
+    [-(cover_width/4),0],
 ];
 
 union(){
@@ -52,8 +61,8 @@ module pillars(){
 // Pole
 module pillar(){
     rotate([0,0,45])
-    translate([0,0,base_height+gap_height/2])
-    cube(size=[pillar_size,pillar_size,gap_height], center=true);
+    translate([0,0,base_height+gap_height/2+pillar_offset])
+    cube(size=[pillar_size,pillar_size,gap_height-pillar_offset], center=true);
 //    cylinder(h = gap_height, r1 = cylinder_bottom_radius, r2 = cylinder_top_radius, center = false);
 }
 
@@ -93,9 +102,17 @@ module cover() {
 
     //Cover Sides
 module cover_sizes() {
+    // sides
     translate([cover_width/2-cover_side_width/2,0,gap_height/2+base_height])
     cube(size = [cover_side_width,cover_length,gap_height], center = true);
 
     translate([-(cover_width/2-cover_side_width/2),0,gap_height/2+base_height])
     cube(size = [cover_side_width,cover_length,gap_height], center = true);
+    
+    // fenders
+    translate([0,-(cover_length/2-front_cover_thickness/2),gap_height/2+base_height+front_cover_offset])
+    cube(size = [cover_width,front_cover_thickness,gap_height-front_cover_offset], center = true);
+    
+    translate([0,(cover_length/2-front_cover_thickness/2),gap_height/2+base_height+front_cover_offset])
+    cube(size = [cover_width,front_cover_thickness,gap_height-front_cover_offset], center = true);
 }
