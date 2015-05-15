@@ -5,7 +5,7 @@ casing_r = 1;
 interior_x = 75;
 interior_y = 95;
 interior_z = 30;
-wall_thickness = 1;
+wall_thickness = 1.5;
 
 _casing_x = interior_x + wall_thickness*2;
 _casing_y = interior_y + wall_thickness*2;
@@ -64,8 +64,8 @@ module body(){
 }
 
 module cover(){
-    x = interior_x-0.05;
-    y = interior_y-0.05;
+    x = interior_x-0.08;
+    y = interior_y-0.08;
     z = snap_offset_z + snap_height/2;
     // Main Plate
     cube([x,y,wall_thickness],center=true);
@@ -158,9 +158,9 @@ module wire_cutouts(x,y,z,offset_z,bat_x,bat_z,w_y,w_z,w_y_offset){
 }
 
 module snap_slots_cutout(x,y,z,w,h,d,o_y,o_z){
-    w = w+0.002;
-    h = h+0.002;
-    d = d+0.002;
+    w = w+0.005;
+    h = h+0.005;
+    d = d+0.005;
     translate([0,o_y,-z/2+o_z])
         cube([x*2,w,h], center=true);
     translate([0,-y/2,-z/2+o_z])
