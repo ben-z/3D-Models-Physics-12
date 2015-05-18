@@ -38,7 +38,7 @@ snap_height = 5;
 snap_depth = 1;
 
 snap_offset_y = 20;
-snap_offset_z = 7.5;
+snap_offset_z = 6.5;
 
 switch();
 
@@ -77,9 +77,9 @@ module cover(){
         translate([0,y/2-wall_thickness/2,0]) cube([x,wall_thickness,z], center=true);
         translate([0,-(y/2-wall_thickness/2),0]) cube([x,wall_thickness,z], center=true);
         // Snap Clips
-        translate([x/2+wall_thickness/2,snap_offset_y,snap_height/2]) cube([snap_depth,snap_width,snap_height], center=true);
-        translate([-(x/2+wall_thickness/2),snap_offset_y,snap_height/2]) cube([snap_depth,snap_width,snap_height], center=true);
-        translate([0,-interior_y/2-snap_depth/2,snap_height/2]) cube([snap_width,snap_depth, snap_height],center=true);
+        translate([x/2+snap_depth/2,snap_offset_y,z/2-snap_height/2]) cube([snap_depth,snap_width,snap_height], center=true);
+        translate([-(x/2+snap_depth/2),snap_offset_y,z/2-snap_height/2]) cube([snap_depth,snap_width,snap_height], center=true);
+        translate([0,-interior_y/2-snap_depth/2,z/2-snap_height/2]) cube([snap_width,snap_depth, snap_height],center=true);
     }
 }
 
@@ -158,9 +158,9 @@ module wire_cutouts(x,y,z,offset_z,bat_x,bat_z,w_y,w_z,w_y_offset){
 }
 
 module snap_slots_cutout(x,y,z,w,h,d,o_y,o_z){
-    w = w+0.005;
-    h = h+0.005;
-    d = d+0.005;
+    w = w+0.5;
+    h = h+0.5;
+    d = d+0.5;
     translate([0,o_y,-z/2+o_z])
         cube([x*2,w,h], center=true);
     translate([0,-y/2,-z/2+o_z])
