@@ -46,11 +46,11 @@ module switch(){
     // Casing
     union() body();
     // Cover
-    difference(){
-        translate([0,0,-_casing_z/2])
-            cover();
-        wire_cutouts(interior_x,interior_y,_casing_z,cutout_z_offset+wall_thickness,battery_connector_x,battery_connector_z,wire_cutout_y,wire_cutout_z,wire_cutout_y_offset);
-    }
+//    difference(){
+//        translate([0,0,-_casing_z/2])
+//            cover();
+//        wire_cutouts(interior_x,interior_y,_casing_z,cutout_z_offset+wall_thickness,battery_connector_x,battery_connector_z,wire_cutout_y,wire_cutout_z,wire_cutout_y_offset);
+//    }
 }
 
 module body(){
@@ -79,7 +79,7 @@ module cover(){
         // Snap Clips
         translate([x/2+snap_depth/2,snap_offset_y,z/2-snap_height/2]) cube([snap_depth,snap_width,snap_height], center=true);
         translate([-(x/2+snap_depth/2),snap_offset_y,z/2-snap_height/2]) cube([snap_depth,snap_width,snap_height], center=true);
-        translate([0,-interior_y/2-snap_depth/2,z/2-snap_height/2]) cube([snap_width,snap_depth, snap_height],center=true);
+        translate([0,-y/2-snap_depth/2,z/2-snap_height/2]) cube([snap_width,snap_depth, snap_height],center=true);
     }
 }
 
